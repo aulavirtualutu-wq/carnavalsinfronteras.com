@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnaval Sin Fronteras | Uruguay & República Dominicana</title>
+    <link rel="shortcut icon" href="mask_9552139.png" type="image/png">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carnaval: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#702b8a',
+                            800: '#4c1d5d',
+                            900: '#2a083b',
+                            gold: '#f59e0b',
+                            coral: '#ff6b6b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Styles & Glassmorphism Effects */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8ff;
+            color: #1f2937;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .hero-pattern {
+            background-color: #2a083b;
+            background-image: radial-gradient(at 0% 0%, hsla(283, 62%, 28%, 1) 0px, transparent 50%),
+                              radial-gradient(at 100% 0%, hsla(343, 85%, 52%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 50% 100%, hsla(262, 83%, 58%, 0.5) 0px, transparent 50%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-dark {
+            background: rgba(42, 8, 59, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #f97316 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .carnaval-gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 20px 40px -15px rgba(112, 43, 138, 0.15);
+        }
+
+        /* Pulse animation for festivity */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+    <!-- Header / Navbar Sticky -->
+    <header class="sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="glass-card shadow-sm border-b border-purple-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <a href="#inicio" class="flex items-center gap-3 group">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-carnaval-700 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/30 group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-2xl">🎭</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold font-display tracking-tight text-carnaval-900 group-hover:text-carnaval-700 transition-colors">
+                                Carnaval <span class="carnaval-gradient-text">Sin Fronteras</span>
+                            </span>
+                            <span class="text-xs font-semibold tracking-wider text-purple-600 uppercase">Uruguay + R. Dominicana</span>
+                        </div>
+                    </a>
+
+                    <!-- Desktop Nav Links -->
+                    <nav class="hidden md:flex items-center gap-8 font-medium text-slate-700">
+                        <a href="#inicio" class="hover:text-carnaval-700 transition-colors py-2">Inicio</a>
+                        <a href="#carnavales" class="hover:text-carnaval-700 transition-colors py-2">Nuestros Carnavales</a>
+                        <a href="#proyecto" class="hover:text-carnaval-700 transition-colors py-2">Proyecto</a>
+                        <a href="#objetivos" class="hover:text-carnaval-700 transition-colors py-2">Objetivos</a>
+                    </nav>
+
+                    <!-- CTA Button -->
+                    <div class="hidden md:flex items-center">
+                        <a href="#carnavales" class="bg-gradient-to-r from-carnaval-700 to-purple-600 hover:from-carnaval-800 hover:to-purple-700 text-white font-semibold px-6 py-2.5 rounded-full shadow-lg shadow-purple-900/20 hover:shadow-purple-900/40 hover:-translate-y-0.5 transition-all duration-300 text-sm flex items-center gap-2">
+                            <span>Explorar Evento</span>
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="p-2 rounded-xl text-carnaval-900 hover:bg-purple-50 transition-colors focus:outline-none" aria-label="Abrir menú">
+                            <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-purple-100 px-4 pt-3 pb-6 space-y-3 shadow-xl animate-fade-in">
+            <a href="#inicio" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-800 hover:bg-purple-100/50 hover:text-carnaval-700 transition-colors">Inicio</a>
+            <a href="#carnavales" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-800 hover:bg-purple-100/50 hover:text-carnaval-700 transition-colors">Nuestros Carnavales</a>
+            <a href="#proyecto" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-800 hover:bg-purple-100/50 hover:text-carnaval-700 transition-colors">Proyecto</a>
+            <a href="#objetivos" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-800 hover:bg-purple-100/50 hover:text-carnaval-700 transition-colors">Objetivos</a>
+            <div class="pt-2">
+                <a href="#carnavales" class="mobile-link w-full text-center block bg-carnaval-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md">
+                    Explorar Evento
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative hero-pattern text-white min-h-[90vh] flex items-center pt-12 pb-20 overflow-hidden">
+        <!-- Floating decorative assets -->
+        <div class="absolute -top-12 -left-12 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-purple-400/30 text-xs sm:text-sm font-medium text-purple-200">
+                        <span class="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
+                        <span class="text-amber-300 font-bold">Primera Edición:</span> Febrero 2027
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                        ¡Un carnaval que <span class="gold-gradient-text">une culturas!</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-purple-100/90 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Carnaval Sin Fronteras fusiona la magia, el candombe y la murga de <strong class="text-white underline decoration-amber-400 decoration-2">Uruguay</strong> con el colorido, la alegría y los ritmos de la <strong class="text-white underline decoration-pink-500 decoration-2">República Dominicana</strong> en un espectáculo multicultural único.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#carnavales" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/40 hover:scale-105 transition-all text-center flex items-center justify-center gap-3 text-base">
+                            <span>Descubrir la Experiencia</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#proyecto" class="glass-dark hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 transition-all text-center flex items-center justify-center gap-2 text-base">
+                            <i data-lucide="info" class="w-5 h-5 text-purple-300"></i>
+                            <span>Ver el Proyecto</span>
+                        </a>
+                    </div>
+
+                    <!-- Micro Stats Badge -->
+                    <div class="pt-6 border-t border-purple-500/20 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-2xl font-bold font-display text-white">2 Países</div>
+                            <div class="text-xs text-purple-300">Unidos en escena</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold font-display text-amber-400">15+</div>
+                            <div class="text-xs text-purple-300">Grupos artísticos</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold font-display text-pink-400">100%</div>
+                            <div class="text-xs text-purple-300">Pasión y tradición</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Visual Cards Stack -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Main Stack Card -->
+                        <div class="relative z-20 rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                            <img src="carnaval-juntos.jpeg" 
+                                 alt="Carnaval Sin Fronteras - Fiesta Cultural" 
+                                 class="w-full h-[420px] object-cover"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x600/702b8a/ffffff?text=Carnaval+Sin+Fronteras';">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-carnaval-900 via-transparent to-transparent opacity-90"></div>
+                            
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white space-y-1">
+                                <span class="bg-amber-400 text-slate-950 font-bold text-xs uppercase px-3 py-1 rounded-full inline-block mb-2">Encuentro Inédito</span>
+                                <h3 class="text-2xl font-bold">Tambores, Murgas y Diablos Cojuelos</h3>
+                                <p class="text-sm text-purple-200">La mayor integración cultural de la región.</p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Decorative Floating Card -->
+                        <div class="absolute -bottom-6 -left-6 z-30 glass-card p-4 rounded-2xl shadow-2xl border border-white max-w-[220px] hidden sm:block floating-element">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-carnaval-700 font-bold text-xl">
+                                    🥁
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">Candombe & Merengue</p>
+                                    <p class="text-[10px] text-slate-500">Ritmo ininterrumpido</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Nuestros Carnavales -->
+    <section id="carnavales" class="py-24 relative bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-carnaval-700 font-bold uppercase tracking-wider text-sm bg-purple-100 px-4 py-1.5 rounded-full inline-block">
+                    Tradición e Identidad
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Conoce <span class="carnaval-gradient-text">Nuestros Carnavales</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Dos patrias con identidades vibrantes, apasionadas por el ritmo, los tambores, la sátira social y el color popular.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Tarjeta 1: Carnaval Uruguayo -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col border border-purple-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="carnaval-uruguayo.jpeg" 
+                             alt="Carnaval Uruguayo" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/702b8a/ffffff?text=Carnaval+Uruguayo';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-md">
+                            <span>🇺🇾</span> Uruguay
+                        </span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-carnaval-700 transition-colors flex items-center justify-between">
+                                Carnaval Uruguayo
+                                <i data-lucide="music" class="w-5 h-5 text-carnaval-600"></i>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                                Considerado el carnaval más largo del mundo. Una tradición llena de la magia de las murgas, comparsas de candombe, el retumbar de los tambores en las Llamadas y una profunda expresión popular.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-carnaval-700 font-semibold">
+                            <span>Candombe • Murgas • Parodistas</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Carnaval Dominicano -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col border border-purple-100">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="carnaval-dominicano.jpeg" 
+                             alt="Carnaval Dominicano" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/4c1d5d/ffffff?text=Carnaval+Dominicano';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-md">
+                            <span>🇩🇴</span> Rep. Dominicana
+                        </span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-carnaval-700 transition-colors flex items-center justify-between">
+                                Carnaval Dominicano
+                                <i data-lucide="sparkles" class="w-5 h-5 text-amber-500"></i>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                                Una celebración vibrante impregnada de color, merengue y folclor. Protagonizada por los impactantes Diablos Cojuelos, sus coloridas máscaras, comparsas y una energía desbordante contagiosa.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
+                            <span>Diablos Cojuelos • Merengue • Máscaras</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Una Fiesta Multicultural -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col border border-amber-200 bg-gradient-to-b from-white to-purple-50/50">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="carnavalunido.jpg" 
+                             alt="Un solo ritmo multicultural" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/f59e0b/ffffff?text=Un+Solo+Ritmo';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-carnaval-900/90 via-black/30 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-amber-400 text-slate-950 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1.5 shadow-md">
+                            <span>🌎</span> La Fusión
+                        </span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-carnaval-700 transition-colors flex items-center justify-between">
+                                Un Solo Ritmo ❤️
+                                <i data-lucide="heart" class="w-5 h-5 text-pink-500 fill-pink-500"></i>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                                Un escenario unificado para compartir tradiciones, romper fronteras geográficas, vibrar con la diversidad artística y entrelazar a las comunidades en una sola voz festiva.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-pink-600 font-semibold">
+                            <span>Integración • Diversidad • Turismo</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Nuestro Proyecto (Misión y Visión) -->
+    <section id="proyecto" class="py-24 relative bg-carnaval-900 text-white overflow-hidden">
+        <!-- Pattern background accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-amber-400 font-bold uppercase tracking-wider text-sm bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20 inline-block">
+                    Estrategia & Propósito
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                    Nuestro <span class="gold-gradient-text">Proyecto</span>
+                </h2>
+                <p class="text-purple-200 text-base sm:text-lg">
+                    Construyendo puentes culturales a través de espectáculos memorables, gestión profesional e inclusión social.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Card Misión -->
+                <div class="glass-dark rounded-3xl p-8 sm:p-10 border border-white/10 hover:border-purple-400/40 transition-all duration-300 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-bold mb-6 shadow-lg shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="compass" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">Nuestra Misión</h3>
+                    <p class="text-purple-100/90 text-base leading-relaxed">
+                        Unir a través del arte, la música y la fiesta popular las culturas de Uruguay y República Dominicana. Promovemos activamente el respeto a la diversidad, la integración comunitaria, la equidad y el desarrollo del turismo cultural internacional.
+                    </p>
+                </div>
+
+                <!-- Card Visión -->
+                <div class="glass-dark rounded-3xl p-8 sm:p-10 border border-white/10 hover:border-pink-400/40 transition-all duration-300 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white font-bold mb-6 shadow-lg shadow-pink-500/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="rocket" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">Nuestra Visión</h3>
+                    <p class="text-purple-100/90 text-base leading-relaxed">
+                        En un plazo de <strong class="text-amber-300">5 años</strong>, consolidarnos como la empresa líder y referente de eventos multiculturales e itinerantes en Uruguay, escalando y exportando con éxito este formato festivo a Argentina y Brasil.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Value Pillars -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-4 rounded-2xl glass-dark border border-white/5">
+                    <i data-lucide="users" class="w-6 h-6 text-amber-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-semibold">Inclusión Social</p>
+                </div>
+                <div class="p-4 rounded-2xl glass-dark border border-white/5">
+                    <i data-lucide="globe" class="w-6 h-6 text-purple-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-semibold">Turismo Cultural</p>
+                </div>
+                <div class="p-4 rounded-2xl glass-dark border border-white/5">
+                    <i data-lucide="award" class="w-6 h-6 text-pink-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-semibold">Calidad Artística</p>
+                </div>
+                <div class="p-4 rounded-2xl glass-dark border border-white/5">
+                    <i data-lucide="trending-up" class="w-6 h-6 text-emerald-400 mx-auto mb-2"></i>
+                    <p class="text-sm font-semibold">Impacto Económico</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección: Nuestros Objetivos -->
+    <section id="objetivos" class="py-24 bg-gradient-to-b from-purple-50/50 via-white to-purple-50/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-carnaval-700 font-bold uppercase tracking-wider text-sm bg-purple-100 px-4 py-1.5 rounded-full inline-block">
+                    Metas Clave
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Nuestros <span class="carnaval-gradient-text">Objetivos</span>
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Indicadores estratégicos diseñados para garantizar el éxito y la sostenibilidad del festival.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- KPI 1 -->
+                <div class="glass-card p-8 rounded-3xl border border-purple-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-100 text-carnaval-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🎉</span>
+                        </div>
+                        <div class="text-4xl sm:text-5xl font-black font-display text-carnaval-900 mb-2">
+                            3.000
+                        </div>
+                        <h4 class="text-base font-bold text-carnaval-700 uppercase tracking-wider mb-2">Asistentes</h4>
+                        <p class="text-slate-600 text-sm">Meta proyectada para la primera edición oficial en Montevideo, Febrero 2027.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-purple-100/80 text-xs font-semibold text-purple-600">
+                        Edición Inaugural
+                    </div>
+                </div>
+
+                <!-- KPI 2 -->
+                <div class="glass-card p-8 rounded-3xl border border-purple-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🥁</span>
+                        </div>
+                        <div class="text-4xl sm:text-5xl font-black font-display text-slate-900 mb-2">
+                            15
+                        </div>
+                        <h4 class="text-base font-bold text-amber-600 uppercase tracking-wider mb-2">Grupos Artísticos</h4>
+                        <p class="text-slate-600 text-sm">Integración en vivo de murgas, comparsas y conjuntos folclóricos de ambos países.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-purple-100/80 text-xs font-semibold text-amber-600">
+                        Intercambio Escénico
+                    </div>
+                </div>
+
+                <!-- KPI 3 -->
+                <div class="glass-card p-8 rounded-3xl border border-purple-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-pink-100 text-pink-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">🤝</span>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-black font-display text-slate-900 mb-2 mt-2">
+                            Social
+                        </div>
+                        <h4 class="text-base font-bold text-pink-600 uppercase tracking-wider mb-2">Comunitario</h4>
+                        <p class="text-slate-600 text-sm">Promover la participación activa, talleres culturales y talleres de inclusión comunitaria.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-purple-100/80 text-xs font-semibold text-pink-600">
+                        Impacto e Inclusión
+                    </div>
+                </div>
+
+                <!-- KPI 4 -->
+                <div class="glass-card p-8 rounded-3xl border border-purple-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <span class="text-2xl">📈</span>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-black font-display text-slate-900 mb-2 mt-2">
+                            $1.200.000
+                        </div>
+                        <h4 class="text-base font-bold text-emerald-600 uppercase tracking-wider mb-2">Facturación</h4>
+                        <p class="text-slate-600 text-sm">Estimación de ingresos proyectados para el sostenimiento financiero del primer año.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-purple-100/80 text-xs font-semibold text-emerald-600">
+                        Sostenibilidad Financiera
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner interactivo extra -->
+            <div class="mt-16 glass-card p-8 sm:p-12 rounded-3xl border border-purple-200 bg-gradient-to-r from-carnaval-800 to-carnaval-900 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="text-2xl sm:text-3xl font-bold">¿Quieres formar parte como patrocinador o artista?</h3>
+                    <p class="text-purple-200 text-sm sm:text-base">Súmate al evento multicultural con mayor proyección de la región.</p>
+                </div>
+                <button onclick="handleContactModal()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-3.5 rounded-2xl transition-all whitespace-nowrap shadow-lg hover:scale-105">
+                    Sumarme al Carnaval
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-carnaval-900 text-white border-t border-purple-900/50 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-purple-800/40">
+                
+                <!-- Col 1: Brand -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-carnaval-600 to-pink-500 flex items-center justify-center text-white">
+                            <span class="text-xl">🎭</span>
+                        </div>
+                        <span class="text-2xl font-bold font-display text-white">
+                            Carnaval <span class="gold-gradient-text">Sin Fronteras</span>
+                        </span>
+                    </div>
+                    <p class="text-purple-200/80 text-sm max-w-sm leading-relaxed">
+                        Un proyecto multicultural uniendo la pasión y riqueza artística de Uruguay 🇺🇾 y República Dominicana 🇩🇴. Dos culturas, una misma celebración.
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-purple-800/50 hover:bg-amber-400 hover:text-slate-950 transition-colors flex items-center justify-center text-purple-200" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-purple-800/50 hover:bg-amber-400 hover:text-slate-950 transition-colors flex items-center justify-center text-purple-200" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-purple-800/50 hover:bg-amber-400 hover:text-slate-950 transition-colors flex items-center justify-center text-purple-200" aria-label="Youtube">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-sm text-purple-200/80">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#carnavales" class="hover:text-white transition-colors">Nuestros Carnavales</a></li>
+                        <li><a href="#proyecto" class="hover:text-white transition-colors">Proyecto & Misión</a></li>
+                        <li><a href="#objetivos" class="hover:text-white transition-colors">Objetivos 2027</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-4">Ubicación & Contacto</h4>
+                    <ul class="space-y-2.5 text-sm text-purple-200/80">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+                            <span>Montevideo, Uruguay</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-4 h-4 text-amber-400"></i>
+                            <span>Febrero de 2027</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>
+                            <span>contacto@carnavalsinfronteras.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Credits -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-purple-300/60 gap-4">
+                <p>© 2027 Carnaval Sin Fronteras. Todos los derechos reservados.</p>
+                <p class="font-medium">🇺🇾 Uruguay + 🇩🇴 República Dominicana — Dos culturas, una misma pasión.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm hidden">
+        <div class="glass-card bg-white w-full max-w-lg rounded-3xl p-8 shadow-2xl relative border border-purple-200 animate-fade-in">
+            <button onclick="handleContactModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="text-center space-y-2 mb-6">
+                <div class="w-12 h-12 bg-purple-100 text-carnaval-700 rounded-2xl flex items-center justify-center mx-auto text-xl">
+                    🎭
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Súmate a la experiencia</h3>
+                <p class="text-slate-500 text-sm">Déjanos tu mensaje para participar como artista, patrocinador o asistente.</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre completo</label>
+                    <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-carnaval-600 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Correo Electrónico</label>
+                    <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-carnaval-600 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Interés</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-carnaval-600 text-sm bg-white">
+                        <option>Deseo ser Patrocinador / Sponsor</option>
+                        <option>Soy Artista / Grupo Cultural</option>
+                        <option>Quiero Asistir al Evento</option>
+                        <option>Prensa / Medios</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-carnaval-700 to-purple-600 text-white font-bold py-3.5 rounded-xl shadow-lg hover:from-carnaval-800 hover:to-purple-700 transition-all">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast Box -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-dark text-white px-6 py-4 rounded-2xl shadow-2xl border border-purple-400/30 hidden flex items-center gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+        <span id="toast-message" class="text-sm font-medium">¡Mensaje enviado con éxito!</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Modal Logic
+        function handleContactModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            handleContactModal();
+            
+            // Show toast notification
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
